@@ -1487,32 +1487,169 @@
 }
 
 @media (max-width: 768px) {
+  .hero-sticky-viewport {
+    background-position: center 36%;
+  }
+
   .sanctuary-left-ui {
-    top: 22%;
-    left: 1.5rem;
-    right: 1.5rem;
+    position: absolute;
+    top: calc(var(--nav-height, 60px) + 0.65rem);
+    left: 1rem;
+    right: 1rem;
     width: auto;
-    max-width: none;
+    max-width: 440px;
+    margin: 0 auto;
+    transform: none;
     align-items: center;
     text-align: center;
+    z-index: 10;
+    pointer-events: auto;
   }
+
+  .sanctuary-kicker {
+    font-size: clamp(0.56rem, 2.4vw, 0.66rem);
+    letter-spacing: 0.26em;
+    margin-bottom: 0.25rem;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  .sanctuary-headline {
+    font-size: clamp(1.6rem, 5.8vw, 2.2rem);
+    line-height: 1.05;
+    letter-spacing: 0.08em;
+    margin: 0 0 0.35rem 0;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.9);
+  }
+
+  .sanctuary-headline br {
+    display: inline;
+  }
+
   .sanctuary-subtext {
-    max-width: 36ch;
-    margin-bottom: 1.2rem;
+    font-size: clamp(0.72rem, 2.7vw, 0.82rem);
+    line-height: 1.35;
+    margin: 0 0 0.65rem 0;
+    max-width: 30ch;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.9);
   }
-  .sanctuary-right-ui {
-    top: auto;
-    bottom: 6.5rem;
-    right: 1.5rem;
-    flex-direction: row;
-    align-items: center;
-    gap: 1.5rem;
-  }
-  .sanctuary-thumb-group {
-    flex-direction: row;
-  }
-  .sanctuary-drag-cue {
+
+  .sanctuary-subtext br {
     display: none;
+  }
+
+  .btn-sanctuary-explore {
+    padding: 0.45rem 1.25rem;
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    margin-bottom: 0;
+    background: rgba(18, 14, 12, 0.75);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Redundant on mobile: thumbnails at bottom already provide 1-tap switching */
+  .sanctuary-chapters {
+    display: none !important;
+  }
+
+  .sanctuary-right-ui {
+    position: absolute;
+    top: auto;
+    bottom: clamp(4.2rem, 8.5vh, 5.2rem);
+    left: 0;
+    right: 0;
+    width: 100%;
+    transform: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+    z-index: 10;
+    pointer-events: auto;
+  }
+
+  .sanctuary-thumb-group {
+    display: flex;
+    flex-direction: row;
+    gap: 0.85rem;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .sanctuary-thumb-pill {
+    width: 48px;
+    height: 48px;
+    padding: 5px;
+    background: rgba(14, 12, 10, 0.78);
+  }
+
+  .sanctuary-thumb-pill.active::after {
+    top: -4px;
+    left: -4px;
+    right: -4px;
+    bottom: -4px;
+  }
+
+  .sanctuary-drag-cue {
+    display: none !important;
+  }
+
+  .sanctuary-bottom-ui {
+    bottom: 1.15rem;
+    left: 0;
+    right: 0;
+    gap: 0.4rem;
+  }
+
+  .bottom-hairline-track {
+    width: 72%;
+    max-width: 250px;
+    gap: 0.8rem;
+  }
+
+  .bottom-mouse-pill {
+    width: 14px;
+    height: 22px;
+    padding-top: 3px;
+    border-radius: 9px;
+  }
+
+  .bottom-mouse-wheel {
+    width: 2px;
+    height: 4px;
+  }
+
+  .bottom-scroll-text {
+    font-size: 0.52rem;
+    letter-spacing: 0.28em;
+  }
+}
+
+@media (max-width: 400px) {
+  .sanctuary-left-ui {
+    top: calc(var(--nav-height, 60px) + 0.4rem);
+    left: 0.75rem;
+    right: 0.75rem;
+  }
+
+  .sanctuary-headline {
+    font-size: 1.5rem;
+  }
+
+  .sanctuary-thumb-pill {
+    width: 44px;
+    height: 44px;
+    padding: 4px;
+  }
+
+  .sanctuary-thumb-group {
+    gap: 0.65rem;
+  }
+
+  .sanctuary-right-ui {
+    bottom: 4rem;
   }
 }
 

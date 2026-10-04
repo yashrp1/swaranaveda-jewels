@@ -128,7 +128,7 @@ body {
   border-style: dashed;
 }
 
-@media (pointer: coarse) {
+@media (pointer: coarse), (max-width: 1024px) {
   .custom-cursor, .custom-cursor-dot {
     display: none !important;
   }
@@ -2033,15 +2033,295 @@ section {
 }
 
 /* Focused house landing page navigation matching Image 1 */
-.nav-links {
-  display: flex !important;
-  align-items: center;
-  gap: clamp(1.2rem, 2.2vw, 2.4rem);
-  list-style: none;
-  margin: 0 auto;
+@media (min-width: 1025px) {
+  .nav-links {
+    display: flex !important;
+    align-items: center;
+    gap: clamp(1.2rem, 2.2vw, 2.4rem);
+    list-style: none;
+    margin: 0 auto;
+  }
 }
+
+@media (max-width: 1024px) {
+  .nav-links {
+    display: none !important;
+  }
+  .site-nav {
+    height: 64px;
+    padding: 0 clamp(1rem, 3.5vw, 1.75rem);
+  }
+  .mobile-menu-btn {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 60px;
+  }
+  .site-nav {
+    height: 60px;
+    padding: 0 1rem;
+  }
+  .nav-brand {
+    font-size: clamp(0.92rem, 3.8vw, 1.08rem);
+    letter-spacing: 0.2em;
+  }
+  .nav-actions {
+    gap: 0.55rem;
+  }
+  .nav-actions .btn-shop {
+    display: none !important;
+  }
+  .nav-actions .btn-sound {
+    width: 34px;
+    height: 34px;
+  }
+}
+
+@media (max-width: 420px) {
+  .nav-actions .nav-icon-btn {
+    display: none !important;
+  }
+}
+
 .nav-actions { margin-left: 0; }
 .nav-actions .btn-sound { display: flex !important; }
+
+/* Mobile Menu Toggle Button */
+.mobile-menu-btn {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(200, 169, 107, 0.35);
+  background: rgba(20, 14, 12, 0.45);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  cursor: pointer;
+  padding: 0;
+  color: #FAF5EB;
+  transition: all 0.3s ease;
+}
+
+.mobile-menu-btn:hover {
+  border-color: #C8A96B;
+  box-shadow: 0 0 12px rgba(200, 169, 107, 0.25);
+  transform: scale(1.05);
+}
+
+.hamburger-box {
+  width: 17px;
+  height: 11px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-line {
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background: #FAF5EB;
+  border-radius: 1px;
+  transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.3s ease;
+}
+
+.mobile-menu-btn.is-active .line-1 {
+  transform: translateY(4.75px) rotate(45deg);
+  background: #C8A96B;
+}
+
+.mobile-menu-btn.is-active .line-2 {
+  transform: translateY(-4.75px) rotate(-45deg);
+  background: #C8A96B;
+}
+
+/* Luxury Mobile Navigation Drawer */
+.mobile-nav-drawer {
+  position: fixed;
+  inset: 0;
+  z-index: 2000;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.35s ease, visibility 0.35s ease;
+}
+
+.mobile-nav-drawer.is-open {
+  pointer-events: auto;
+  visibility: visible;
+  opacity: 1;
+}
+
+.mobile-nav-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(8, 4, 6, 0.82);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.mobile-nav-drawer.is-open .mobile-nav-backdrop {
+  opacity: 1;
+}
+
+.mobile-nav-panel {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(88vw, 360px);
+  background: linear-gradient(180deg, #13090B 0%, #0A0608 100%);
+  border-left: 1px solid rgba(200, 169, 107, 0.22);
+  box-shadow: -10px 0 40px rgba(0, 0, 0, 0.85);
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.38s cubic-bezier(0.16, 1, 0.3, 1);
+  overflow-y: auto;
+  padding: 1.4rem 1.5rem 2rem;
+  z-index: 2;
+}
+
+.mobile-nav-drawer.is-open .mobile-nav-panel {
+  transform: translateX(0);
+}
+
+.mobile-nav-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid rgba(200, 169, 107, 0.15);
+  margin-bottom: 1.5rem;
+}
+
+.mobile-nav-brand {
+  font-family: var(--font-serif);
+  font-size: 1.1rem;
+  letter-spacing: 0.24em;
+  color: #FAF5EB;
+  font-weight: 500;
+}
+
+.mobile-nav-close {
+  background: transparent;
+  border: 1px solid rgba(200, 169, 107, 0.25);
+  color: #FAF5EB;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.25s ease;
+}
+
+.mobile-nav-close:hover {
+  border-color: #C8A96B;
+  color: #C8A96B;
+  transform: rotate(90deg);
+}
+
+.mobile-nav-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.mobile-nav-link {
+  display: flex;
+  align-items: center;
+  padding: 0.85rem 0.5rem;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.25s ease;
+}
+
+.mobile-nav-link .nav-roman {
+  font-family: var(--font-sans);
+  font-size: 0.65rem;
+  letter-spacing: 0.15em;
+  color: #C8A96B;
+  width: 2.2rem;
+  font-weight: 600;
+}
+
+.mobile-nav-link .nav-text {
+  font-family: var(--font-serif);
+  font-size: 1.18rem;
+  letter-spacing: 0.04em;
+  color: #FAF5EB;
+  flex: 1;
+  transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.mobile-nav-link .nav-arrow {
+  color: rgba(200, 169, 107, 0.4);
+  font-size: 0.85rem;
+  transition: transform 0.25s ease, color 0.25s ease;
+}
+
+.mobile-nav-link:hover .nav-text,
+.mobile-nav-link.active .nav-text {
+  color: #DFC597;
+  transform: translateX(4px);
+}
+
+.mobile-nav-link:hover .nav-arrow,
+.mobile-nav-link.active .nav-arrow {
+  color: #C8A96B;
+  transform: translateX(4px);
+}
+
+.mobile-nav-action-wrap {
+  margin-top: 1.8rem;
+  margin-bottom: 1.25rem;
+}
+
+.mobile-drawer-cta {
+  width: 100%;
+  justify-content: center;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.7rem;
+  letter-spacing: 0.2em;
+}
+
+.mobile-nav-footer {
+  margin-top: auto;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(200, 169, 107, 0.12);
+  text-align: center;
+}
+
+.mobile-nav-legacy {
+  font-family: var(--font-serif);
+  font-style: italic;
+  font-size: 0.75rem;
+  color: rgba(240, 230, 215, 0.65);
+  margin-bottom: 0.35rem;
+  line-height: 1.4;
+}
+
+.mobile-nav-details {
+  font-family: var(--font-sans);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 107, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+}
 .hero-brand-title { max-width: 19ch; margin-inline: auto; }
 .hero-product-signature {
   position: absolute;

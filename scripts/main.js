@@ -284,14 +284,80 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // ESC key closes any open modal
+  // ESC key closes any open modal or navigation drawer
   window.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') {
+      closeMobileNav();
       appointmentModal?.classList.remove('active');
       videoModal?.classList.remove('active');
       if (craftVideoElem) craftVideoElem.pause();
     }
   });
+
+  // --- 10. LUXURY MOBILE NAVIGATION DRAWER CONTROLLER ---
+  const mobileMenuBtn = document.getElementById('mobile-menu-toggle');
+  const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+  const mobileNavClose = document.getElementById('mobile-nav-close');
+  const mobileNavLinks = document.querySelectorAll('.mobile-nav-link');
+  const mobileNavBackdrop = document.querySelector('.mobile-nav-backdrop');
+  const mobileDrawerCta = document.querySelector('.mobile-drawer-cta');
+
+  function openMobileNav() {
+    if (!mobileNavDrawer) return;
+    mobileNavDrawer.classList.add('is-open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'false');
+    mobileMenuBtn?.classList.add('is-active');
+    mobileMenuBtn?.setAttribute('aria-expanded', 'true');
+    document.body.style.overflow = 'hidden';
+    if (window.SwaranavedaAudio) {
+      window.SwaranavedaAudio.triggerChime();
+    }
+  }
+
+  function closeMobileNav() {
+    if (!mobileNavDrawer) return;
+    mobileNavDrawer.classList.remove('is-open');
+    mobileNavDrawer.setAttribute('aria-hidden', 'true');
+    mobileMenuBtn?.classList.remove('is-active');
+    mobileMenuBtn?.setAttribute('aria-expanded', 'false');
+    document.body.style.overflow = '';
+  }
+
+  if (mobileMenuBtn) {
+    mobileMenuBtn.addEventListener('click', (e) => {
+      e.preventDefault();
+      if (mobileNavDrawer?.classList.contains('is-open')) {
+        closeMobileNav();
+      } else {
+        openMobileNav();
+      }
+    });
+  }
+
+  if (mobileNavClose) {
+    mobileNavClose.addEventListener('click', (e) => {
+      e.preventDefault();
+      closeMobileNav();
+    });
+  }
+
+  if (mobileNavBackdrop) {
+    mobileNavBackdrop.addEventListener('click', closeMobileNav);
+  }
+
+  mobileNavLinks.forEach((link) => {
+    link.addEventListener('click', () => {
+      mobileNavLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      closeMobileNav();
+    });
+  });
+
+  if (mobileDrawerCta) {
+    mobileDrawerCta.addEventListener('click', () => {
+      closeMobileNav();
+    });
+  }
 
   // --- 10. SOUND TOGGLE BUTTON ---
   const soundBtn = document.getElementById('btn-sound-toggle');

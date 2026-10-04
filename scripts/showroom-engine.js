@@ -507,11 +507,16 @@ window.SwarnaVedaShowroom = (function () {
     const rawFrame = Math.round(scrubProgress * (TOTAL_FRAMES - 1)) + 1;
     state.currentFrameIndex = Math.max(1, Math.min(TOTAL_FRAMES, rawFrame));
 
-    // Parallax fade for Sanctuary Left UI (NEVER translateX(-50%))
+    // Parallax fade for Sanctuary Left UI
+    const isMobileUI = window.innerWidth <= 768;
     if (sanctuaryLeftUI) {
       const alpha = Math.max(0, 1 - state.scrollProgress * 2.8);
       sanctuaryLeftUI.style.opacity = alpha;
-      sanctuaryLeftUI.style.transform = `translateY(calc(-50% - ${state.scrollProgress * 120}px))`;
+      if (isMobileUI) {
+        sanctuaryLeftUI.style.transform = `translateY(-${state.scrollProgress * 50}px)`;
+      } else {
+        sanctuaryLeftUI.style.transform = `translateY(calc(-50% - ${state.scrollProgress * 120}px))`;
+      }
       sanctuaryLeftUI.style.pointerEvents = alpha < 0.1 ? 'none' : 'auto';
     }
 
@@ -519,7 +524,11 @@ window.SwarnaVedaShowroom = (function () {
     if (sanctuaryRightUI) {
       const alpha = Math.max(0, 1 - state.scrollProgress * 2.8);
       sanctuaryRightUI.style.opacity = alpha;
-      sanctuaryRightUI.style.transform = `translateY(calc(-50% - ${state.scrollProgress * 120}px))`;
+      if (isMobileUI) {
+        sanctuaryRightUI.style.transform = `translateY(${state.scrollProgress * 30}px)`;
+      } else {
+        sanctuaryRightUI.style.transform = `translateY(calc(-50% - ${state.scrollProgress * 120}px))`;
+      }
       sanctuaryRightUI.style.pointerEvents = alpha < 0.1 ? 'none' : 'auto';
     }
 
@@ -570,12 +579,13 @@ window.SwarnaVedaShowroom = (function () {
 
   // --- 7. CANVAS RENDERER ---
   function getPieceMetrics(piece, w, h, scaleMultiplier = 1.0, floatBob = 0) {
-    const maxW = Math.min(w * 0.72, 460);
-    const maxH = Math.min(h * 0.44, 420);
+    const isMobile = w <= 768;
+    const maxW = isMobile ? Math.min(w * 0.72, 300) : Math.min(w * 0.72, 460);
+    const maxH = isMobile ? Math.min(h * 0.32, 250) : Math.min(h * 0.44, 420);
     const pieceScale = (piece.scale || 0.8) * scaleMultiplier;
     const drawDim = Math.min(maxW, maxH) * pieceScale;
-    const stoneSurfaceY = h * (piece.targetBottomYRatio || 0.584);
-    const hoverGap = piece.hoverGap || 20;
+    const stoneSurfaceY = h * (isMobile ? 0.60 : (piece.targetBottomYRatio || 0.584));
+    const hoverGap = isMobile ? 12 : (piece.hoverGap || 20);
     const centerToBottomPx = drawDim * (piece.centerToBottomRatio || 0.3);
     const cy = stoneSurfaceY - hoverGap + floatBob - centerToBottomPx;
     return {
@@ -860,8 +870,9 @@ window.SwarnaVedaShowroom = (function () {
     }
 
     // Determine target size so piece breathes with luxury proportion
-    const maxW = Math.min(w * 0.76, 520);
-    const maxH = Math.min(h * 0.48, 500);
+    const isMobile = w <= 768;
+    const maxW = isMobile ? Math.min(w * 0.74, 310) : Math.min(w * 0.76, 520);
+    const maxH = isMobile ? Math.min(h * 0.33, 260) : Math.min(h * 0.48, 500);
 
     const aspect = img.width / img.height;
     let drawW = maxW;
