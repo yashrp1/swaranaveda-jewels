@@ -267,42 +267,8 @@ window.SwarnaVedaShowroom = (function () {
 
   // --- 3. DRAG-TO-ROTATE CONTROLLER ---
   function initDragController() {
-    if (!canvas) return;
-
-    function handleStart(clientX) {
-      isDragging = true;
-      dragStartX = clientX;
-      lastDragX = clientX;
-      lastDragTime = performance.now();
-      dragVelocity = 0;
-    }
-
-    function handleMove(clientX) {
-      if (!isDragging) return;
-      const now = performance.now();
-      const dx = clientX - lastDragX;
-      const dt = Math.max(1, now - lastDragTime);
-      dragRotation += dx * 0.005;
-      dragVelocity = (dx / dt) * 0.12;
-      lastDragX = clientX;
-      lastDragTime = now;
-    }
-
-    function handleEnd() {
-      isDragging = false;
-    }
-
-    canvas.addEventListener('mousedown', (e) => handleStart(e.clientX));
-    window.addEventListener('mousemove', (e) => handleMove(e.clientX));
-    window.addEventListener('mouseup', handleEnd);
-
-    canvas.addEventListener('touchstart', (e) => {
-      if (e.touches.length > 0) handleStart(e.touches[0].clientX);
-    }, { passive: true });
-    window.addEventListener('touchmove', (e) => {
-      if (e.touches.length > 0) handleMove(e.touches[0].clientX);
-    }, { passive: true });
-    window.addEventListener('touchend', handleEnd);
+    // Disabled: Pieces are high-resolution 2D masterwork photography
+    return;
   }
 
   // --- 4. SCROLL HANDLING & TIMELINE ---
@@ -819,12 +785,9 @@ window.SwarnaVedaShowroom = (function () {
 
     if (!img || !img.complete) return;
 
-    // 3D turnaround scale on X-axis from drag rotation:
-    // cos(dragRotation) creates true 3D horizontal spin foreshortening!
-    let spinScaleX = Math.cos(dragRotation);
-    if (Math.abs(spinScaleX) < 0.08) spinScaleX = 0.08 * Math.sign(spinScaleX || 1);
-
-    const totalTilt = floatTilt + dragVelocity * 8;
+    // 2D Masterwork presentation (natural float without 3D drag foreshortening)
+    const spinScaleX = 1.0;
+    const totalTilt = floatTilt;
 
     if (!state.isTransitioning) {
       drawFittedImage(

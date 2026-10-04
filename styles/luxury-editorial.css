@@ -1363,11 +1363,7 @@
 }
 
 .sanctuary-drag-cue {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.6rem;
-  opacity: 0.85;
+  display: none !important;
 }
 
 .drag-mouse-pill {
