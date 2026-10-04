@@ -1574,4 +1574,670 @@
   transform: scale(1.1);
 }
 
+/* ===================================================================
+   SWARNAVEDA LUXURY EDITORIAL EXPANSION:
+   1. OUR VALUES & 4 TRUST PILLARS
+   2. VISIT OUR ATELIER SPLIT PARCHMENT SHOWCASE
+   3. SHOP OUR JEWELLERY EDITORIAL BANNER
+   4. TIMELESS ANCHORED 4-COLUMN FOOTER WITH WATERMARK FILIGREE
+   =================================================================== */
+
+/* Reusable Kicker & Line */
+.editorial-kicker-line {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.2rem;
+}
+
+.editorial-kicker-line .kicker-text {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  font-weight: 600;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: #DFC597;
+}
+
+.editorial-kicker-line .kicker-rule {
+  display: inline-block;
+  width: 36px;
+  height: 1px;
+  background: #DFC597;
+  opacity: 0.7;
+}
+
+.editorial-kicker-line.dark-kicker .kicker-text {
+  color: #8C6F47;
+}
+
+.editorial-kicker-line.dark-kicker .kicker-rule {
+  background: #8C6F47;
+}
+
+/* Reusable Gold Action Button */
+.btn-editorial-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.8rem 1.7rem;
+  background: #E0C799;
+  color: #1A130B;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: none;
+  text-decoration: none;
+  border-radius: 3px;
+  border: 1px solid rgba(224, 199, 153, 0.4);
+  cursor: pointer;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.25);
+  transition: all 0.35s var(--ease-cinematic);
+}
+
+.btn-editorial-gold:hover {
+  background: #EED8AF;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 26px rgba(224, 199, 153, 0.35);
+  color: #0E0905;
+}
+
+.btn-editorial-gold .cta-arrow {
+  font-size: 0.95rem;
+  transition: transform 0.3s ease;
+}
+
+.btn-editorial-gold:hover .cta-arrow {
+  transform: translateX(4px);
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   1. VALUES & 4 TRUST PILLARS SECTION
+   ─────────────────────────────────────────────────────────────────── */
+.values-trust-section {
+  position: relative;
+  background-color: #0A0D0A;
+  background-image: 
+    linear-gradient(to right, 
+      rgba(9, 12, 9, 0.96) 0%, 
+      rgba(9, 12, 9, 0.90) 36%, 
+      rgba(9, 12, 9, 0.65) 54%, 
+      rgba(9, 12, 9, 0.20) 74%,
+      transparent 100%),
+    url('../assets/images/rooted_trust_banner.jpg');
+  background-size: cover;
+  background-position: center right;
+  background-repeat: no-repeat;
+  color: var(--color-rich-cream);
+  padding: clamp(5.5rem, 8vw, 7.5rem) var(--container-pad) clamp(4.5rem, 6.5vw, 6rem);
+  border-top: 1px solid rgba(200, 169, 107, 0.12);
+  min-height: min(680px, 88vh);
+  display: flex;
+  align-items: center;
+  scroll-margin-top: calc(var(--nav-height) + 1.5rem);
+  overflow: hidden;
+}
+
+.values-content-wrap {
+  max-width: var(--container-max);
+  width: 100%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+  z-index: 2;
+}
+
+.values-editorial-block {
+  max-width: 580px;
+}
+
+.values-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 300;
+  line-height: 1.14;
+  color: #FAF5EB;
+  margin-bottom: 1.25rem;
+  letter-spacing: -0.01em;
+}
+
+.values-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  line-height: 1.7;
+  color: rgba(250, 245, 235, 0.78);
+  margin-bottom: 2rem;
+  max-width: 44ch;
+}
+
+.values-cta {
+  margin-bottom: 3.5rem;
+}
+
+/* 4 Trust Badges Row with Subtle Vertical Dividers */
+.values-pillars-row {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  max-width: 660px;
+  width: 100%;
+}
+
+.pillar-item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.85rem;
+  padding: 0 1.25rem;
+  position: relative;
+}
+
+/* Subtle thin vertical divider line between badges */
+.pillar-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 15%;
+  height: 70%;
+  width: 1px;
+  background: rgba(223, 197, 151, 0.22);
+}
+
+.pillar-icon-wrap {
+  color: #DFC597;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.3s ease;
+}
+
+.pillar-item:hover .pillar-icon-wrap {
+  transform: translateY(-2px) scale(1.08);
+}
+
+.pillar-label {
+  font-family: var(--font-sans);
+  font-size: 0.62rem;
+  font-weight: 600;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 245, 235, 0.85);
+  line-height: 1.35;
+  text-align: center;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   2. VISIT OUR ATELIER SPLIT SHOWCASE (WARM PARCHMENT CARD)
+   ─────────────────────────────────────────────────────────────────── */
+.atelier-showcase-split {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  min-height: 520px;
+  background: #F8F3EC;
+  border-top: 1px solid rgba(200, 169, 107, 0.15);
+  overflow: hidden;
+}
+
+.atelier-split-image {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 460px;
+}
+
+.atelier-split-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.2s var(--ease-cinematic);
+}
+
+.atelier-split-image:hover img {
+  transform: scale(1.035);
+}
+
+.atelier-split-card {
+  position: relative;
+  background-color: #F8F3EC;
+  background-image: radial-gradient(circle at 90% 90%, rgba(224, 199, 153, 0.18) 0%, transparent 60%);
+  padding: clamp(3.5rem, 6vw, 6.5rem) clamp(2.5rem, 5vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.atelier-filigree-watermark {
+  position: absolute;
+  right: -25px;
+  bottom: -25px;
+  width: 250px;
+  height: 250px;
+  color: #C9A76E;
+  opacity: 0.38;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.atelier-filigree-watermark img,
+.atelier-filigree-watermark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.atelier-split-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.4rem, 4vw, 3.8rem);
+  font-weight: 400;
+  line-height: 1.12;
+  color: #1A130C;
+  margin-bottom: 1.2rem;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 2;
+}
+
+.atelier-split-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  line-height: 1.7;
+  color: #5E4A3B;
+  margin-bottom: 2.2rem;
+  max-width: 44ch;
+  position: relative;
+  z-index: 2;
+}
+
+.atelier-split-card .btn-editorial-gold {
+  position: relative;
+  z-index: 2;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   3. SHOP OUR JEWELLERY EDITORIAL BANNER
+   ─────────────────────────────────────────────────────────────────── */
+.shop-editorial-banner {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  width: 100%;
+  min-height: 440px;
+  background: #110C09;
+  border-top: 1px solid rgba(200, 169, 107, 0.15);
+  border-bottom: 1px solid rgba(200, 169, 107, 0.15);
+  overflow: hidden;
+}
+
+.shop-banner-content {
+  position: relative;
+  background: linear-gradient(135deg, #150E0B 0%, #0E0906 100%);
+  padding: clamp(3.5rem, 6vw, 6rem) clamp(2.5rem, 5vw, 6rem);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+}
+
+.shop-filigree-watermark {
+  position: absolute;
+  left: -20px;
+  bottom: -20px;
+  width: 220px;
+  height: 220px;
+  color: #DFC597;
+  opacity: 0.24;
+  pointer-events: none;
+  transform: rotate(-90deg);
+  z-index: 1;
+}
+
+.shop-filigree-watermark img,
+.shop-filigree-watermark svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.shop-banner-title {
+  font-family: var(--font-serif);
+  font-size: clamp(2.3rem, 3.8vw, 3.6rem);
+  font-weight: 300;
+  line-height: 1.15;
+  color: #FAF5EB;
+  margin-bottom: 1.1rem;
+  letter-spacing: -0.01em;
+  position: relative;
+  z-index: 2;
+}
+
+.shop-banner-desc {
+  font-family: var(--font-sans);
+  font-size: clamp(0.92rem, 1.1vw, 1.02rem);
+  line-height: 1.65;
+  color: rgba(250, 245, 235, 0.75);
+  margin-bottom: 2.2rem;
+  max-width: 44ch;
+  position: relative;
+  z-index: 2;
+}
+
+.shop-banner-content .btn-editorial-gold {
+  position: relative;
+  z-index: 2;
+}
+
+.shop-banner-image {
+  position: relative;
+  overflow: hidden;
+  height: 100%;
+  min-height: 420px;
+}
+
+.shop-banner-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 1.2s var(--ease-cinematic);
+}
+
+.shop-banner-image:hover img {
+  transform: scale(1.035);
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   4. REFINED LUXURY 4-COLUMN FOOTER
+   ─────────────────────────────────────────────────────────────────── */
+.site-footer-luxury {
+  background-color: #0A0807;
+  color: #FAF5EB;
+  position: relative;
+  overflow: hidden;
+}
+
+.footer-filigree-left {
+  position: absolute;
+  left: -20px;
+  bottom: -20px;
+  width: 210px;
+  height: 210px;
+  color: #DFC597;
+  opacity: 0.18;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.footer-filigree-right {
+  position: absolute;
+  right: -20px;
+  bottom: -20px;
+  width: 210px;
+  height: 210px;
+  color: #DFC597;
+  opacity: 0.18;
+  pointer-events: none;
+  transform: scaleX(-1);
+  z-index: 1;
+}
+
+.footer-filigree-left img,
+.footer-filigree-right img {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.footer-luxury-container {
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: clamp(4.5rem, 6.5vw, 6rem) var(--container-pad) clamp(2.5rem, 4vw, 3.5rem);
+  position: relative;
+  z-index: 2;
+}
+
+.footer-luxury-grid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr 1fr 1.45fr;
+  gap: clamp(2rem, 4vw, 4.5rem);
+  margin-bottom: 4rem;
+}
+
+/* Col 1: Brand */
+.footer-brand-title {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: #FAF5EB;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.footer-brand-tagline-sub {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: #8C7864;
+  margin-bottom: 2rem;
+  display: block;
+  line-height: 1.5;
+}
+
+.footer-social-row {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+}
+
+.social-circle-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid rgba(223, 197, 151, 0.35);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(250, 245, 235, 0.85);
+  text-decoration: none;
+  transition: all 0.3s ease;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.social-circle-btn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+}
+
+.social-circle-btn:hover {
+  border-color: #E0C799;
+  background: rgba(224, 199, 153, 0.15);
+  color: #E0C799;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Col 2 & 3: Nav Lists */
+.footer-col-luxury {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer-col-heading {
+  font-family: var(--font-serif);
+  font-size: 1.12rem;
+  font-weight: 400;
+  color: #FAF5EB;
+  margin-bottom: 1.4rem;
+  letter-spacing: 0.02em;
+}
+
+.footer-col-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.footer-col-list a {
+  font-family: var(--font-sans);
+  font-size: 0.84rem;
+  color: rgba(250, 245, 235, 0.65);
+  text-decoration: none;
+  transition: color 0.25s ease, transform 0.25s ease;
+  display: inline-block;
+}
+
+.footer-col-list a:hover {
+  color: #DFC597;
+  transform: translateX(3px);
+}
+
+/* Col 4: Stay Connected */
+.footer-connect-desc {
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.6;
+  color: rgba(250, 245, 235, 0.68);
+  margin-bottom: 1.5rem;
+}
+
+.newsletter-form-luxury {
+  width: 100%;
+  max-width: 360px;
+}
+
+.newsletter-input-wrap {
+  display: flex;
+  background: #18120F;
+  border: 1px solid rgba(224, 199, 153, 0.28);
+  border-radius: 3px;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.newsletter-input-wrap:focus-within {
+  border-color: #DFC597;
+  box-shadow: 0 0 12px rgba(223, 197, 151, 0.2);
+}
+
+.newsletter-input-wrap input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  padding: 0.85rem 1.1rem;
+  color: #FAF5EB;
+  font-family: var(--font-sans);
+  font-size: 0.82rem;
+  outline: none;
+}
+
+.newsletter-input-wrap input::placeholder {
+  color: rgba(250, 245, 235, 0.4);
+}
+
+.newsletter-submit-btn {
+  background: #DFC597;
+  border: none;
+  color: #150E09;
+  width: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.15rem;
+  font-weight: 600;
+  transition: background 0.25s ease, transform 0.2s ease;
+}
+
+.newsletter-submit-btn:hover {
+  background: #EED8AF;
+  color: #0E0905;
+}
+
+/* Footer Bottom Bar */
+.footer-sub-bar {
+  border-top: 1px solid rgba(224, 199, 153, 0.12);
+  padding-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1.2rem;
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  color: rgba(250, 245, 235, 0.45);
+}
+
+.footer-sub-bar span {
+  text-transform: uppercase;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   RESPONSIVE ADAPTATIONS
+   ─────────────────────────────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .values-container {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+  
+  .atelier-showcase-split {
+    grid-template-columns: 1fr;
+  }
+
+  .atelier-split-image {
+    min-height: 380px;
+    height: 380px;
+  }
+
+  .shop-editorial-banner {
+    grid-template-columns: 1fr;
+  }
+
+  .shop-banner-image {
+    min-height: 340px;
+    height: 340px;
+  }
+
+  .footer-luxury-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .values-pillars-row {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem 1.2rem;
+  }
+
+  .footer-luxury-grid {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .footer-sub-bar {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.8rem;
+  }
+}
+
+
 

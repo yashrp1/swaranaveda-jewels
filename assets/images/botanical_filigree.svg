@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 280" fill="none" stroke="currentColor" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round">
+  <!-- Royal Botanical Filigree Flourish -->
+  <path d="M260 260 C210 250, 160 220, 140 170 C120 120, 140 60, 190 30 C220 12, 250 25, 255 55 C260 85, 230 115, 195 110 C165 105, 155 80, 168 65 C178 54, 195 58, 198 72 C200 82, 190 92, 180 88" opacity="0.85"/>
+  <path d="M140 170 C100 180, 60 160, 45 125 C32 95, 48 65, 75 55 C102 45, 125 65, 120 92 C116 115, 95 128, 78 120 C64 114, 60 98, 70 88 C78 80, 92 84, 92 94" opacity="0.75"/>
+  <path d="M175 195 C145 225, 95 240, 50 225 C20 215, 8 185, 20 155 C32 125, 65 118, 90 132 C112 145, 115 172, 100 188 C88 200, 70 198, 64 185 C58 172, 68 160, 80 164" opacity="0.8"/>
+  <!-- Delicate tendrils and petal accents -->
+  <path d="M260 260 C230 210, 210 160, 220 110 C225 85, 245 70, 265 80" stroke-dasharray="2 3" opacity="0.6"/>
+  <path d="M190 145 C220 160, 245 190, 255 230" opacity="0.65"/>
+  <path d="M140 170 C160 205, 195 235, 240 250" opacity="0.7"/>
+  <path d="M110 205 C85 230, 55 245, 20 250" stroke-dasharray="3 3" opacity="0.5"/>
+  <circle cx="190" cy="30" r="3" fill="currentColor" stroke="none" opacity="0.7"/>
+  <circle cx="255" cy="55" r="2.5" fill="currentColor" stroke="none" opacity="0.6"/>
+  <circle cx="75" cy="55" r="2.5" fill="currentColor" stroke="none" opacity="0.6"/>
+  <circle cx="20" cy="155" r="2" fill="currentColor" stroke="none" opacity="0.5"/>
+  <!-- Central stylized blossom outline -->
+  <path d="M150 155 C160 140, 175 145, 175 160 C175 175, 155 180, 145 170 C135 160, 140 145, 150 140 Z" opacity="0.85"/>
+</svg>

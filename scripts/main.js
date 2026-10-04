@@ -236,6 +236,16 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  // --- FOOTER NEWSLETTER SUBSCRIPTION ---
+  const footerNewsletterForm = document.getElementById('footer-newsletter-form');
+  if (footerNewsletterForm) {
+    footerNewsletterForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+      alert('Thank you for subscribing to Swarnaveda Privé Gazette. You will receive private previews of our upcoming haute creations.');
+      footerNewsletterForm.reset();
+    });
+  }
+
   // --- 9. CINEMATIC CRAFT FILM MODAL ---
   const videoModal = document.getElementById('craft-video-modal');
   const openVideoBtns = document.querySelectorAll('.open-craft-video');

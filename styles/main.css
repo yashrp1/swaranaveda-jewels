@@ -4036,21 +4036,32 @@ html, body, #site-nav, .editorial-section, .hero-sticky-viewport {
 #section-instagram .btn-instagram-external { color: #382516; border-color: rgba(130, 86, 39, .38); }
 
 #section-showroom {
-  display: block !important;
+  display: grid !important;
+  grid-template-columns: 1fr 1fr !important;
   margin: 0 !important;
-  min-height: 0;
-  padding: clamp(2rem, 5vw, 5rem) var(--container-pad);
-  background: #100c09;
+  min-height: 520px;
+  padding: 0 !important;
+  background: #F8F3EC !important;
 }
-#section-showroom .editorial-container { padding: 0; }
-#section-showroom .showroom-banner-box { min-height: min(78vh, 720px); }
-#section-shop { display: block !important; margin: 0 !important; padding: 0 !important; background: #100c09; }
-#section-shop > .editorial-container { display: none !important; }
-#section-shop .site-footer {
-  margin: 0 auto;
-  max-width: none;
-  padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 5vw, 5rem) 2rem;
+
+#section-shop {
+  display: grid !important;
+  grid-template-columns: 1.1fr 0.9fr !important;
+  margin: 0 !important;
+  min-height: 440px;
+  padding: 0 !important;
+  background: #110C09 !important;
 }
+
+@media (max-width: 1024px) {
+  #section-showroom {
+    grid-template-columns: 1fr !important;
+  }
+  #section-shop {
+    grid-template-columns: 1fr !important;
+  }
+}
+
 
 @media (max-width: 760px) {
   #section-craft .editorial-container { display: flex; flex-direction: column; align-items: stretch; gap: 2rem; }
